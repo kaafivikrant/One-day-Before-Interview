@@ -168,6 +168,16 @@ void reverse(Node **head_ref) {
     (*head_ref) = prev;
 }
 
+void countll(Node *head){
+    int count=0;
+    Node *curr=head;
+    while(curr != nullptr){
+        count++;
+        curr=curr->next;
+    }
+    cout<<count<<endl;
+}
+
 int main(){
 
     Node *head;Node *first;Node *second;Node *third;
@@ -206,6 +216,7 @@ int main(){
     cout<<"Reverse:-";
     reverse(&head);
     print(head);
+    countll(head);
 
     return 0;
 }
