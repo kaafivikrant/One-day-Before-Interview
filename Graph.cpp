@@ -323,6 +323,28 @@ int findDiff(Node *root){
     return diff;
 }
 
+int maxDifference(Node *root, int &diff){
+
+    if(root == nullptr)
+        return INT16_MAX;
+
+    int left = maxDifference(root->left, diff);
+    int right = maxDifference(root->right, diff);
+
+    int d = root->key - min(left,right);
+
+    diff = max(diff,d);
+
+    return min(min(left,right), root->key);
+}
+
+int maxDifference(Node *root){
+    int diff = INT16_MIN;
+    maxDifference(root,diff);
+
+    return diff;
+}
+
 
 int main(){
 
@@ -385,7 +407,7 @@ int main(){
     printNode(root,2,4);
     cout<<"\nDifference between odd and even level"<<endl;
     cout<<findDiff(root);
-
-
+    cout<<"\nMaximum difference between a node and its descendants"<<endl;
+    cout<<maxDifference(root);
     return 0;
 }
