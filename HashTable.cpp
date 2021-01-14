@@ -42,7 +42,24 @@ void HashTable::printTable() {
 }
 
 string HashTable::searchTable(int key) {
-    return std::string();
+    
+    int hashValue = HashFunction(key);
+    auto& cell = table[hashValue];
+    auto Itr = begin(cell);
+    bool keyExist = false;
+
+    for(; Itr != end(cell) ; Itr++){
+        if(Itr->first == key){
+            keyExist = true;
+            cout<<" Key :- "<<Itr->first<<" Value:- "<<Itr->second<<endl;
+            break;
+        }
+    }
+
+    if(!keyExist){
+        cout<<"Item Not Found"<<endl;
+    }
+
 }
 
 void HashTable::removeTable(int key) {
