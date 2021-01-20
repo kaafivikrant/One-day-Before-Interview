@@ -227,4 +227,110 @@ b) Using a relational database with Node.js is considered less favorable
 
 libuv is a C library that is used to abstract non-blocking I/O operations to a consistent interface across all supported platforms. It provides mechanisms to handle file system, DNS, network, child processes, pipes, signal handling, polling and streaming. It also includes a thread pool for offloading work for some things that can't be done asynchronously at the operating system level.
 
+**-How does Node.js handle child threads?**
+
+Node.js, in its essence, is a single thread process. It does not expose child threads and thread management methods to the developer. Technically, Node.js does spawn child threads for certain tasks such as asynchronous I/O, but these run behind the scenes and do not execute any application JavaScript code, nor block the main event loop.
+
+If threading support is desired in a Node.js application, there are tools available to enable it, such as the ChildProcess module.
+
+**-Rewrite promise-based Node.js applications to Async/Await ?**
+
+```
+function asyncTask() {
+    return functionA()
+        .then((valueA) => functionB(valueA))
+        .then((valueB) => functionC(valueB))
+        .then((valueC) => functionD(valueC))
+        .catch((err) => logger.error(err))
+}
+
+```
+
+```
+async function asyncTask() {
+    try {
+        const valueA = await functionA()
+        const valueB = await functionB(valueA)
+        const valueC = await functionC(valueB)
+        return await functionD(valueC)
+    } catch (err) {
+        logger.error(err)
+    }
+}
+```
+
+**-What's the Event Loop?**
+
+![Image of Event Loop](https://i.stack.imgur.com/Lbs9z.png)
+
+**-When should we use Node.js?**
+
+Node.js is well suited for applications that have
+
+a lot of concurrent connections and
+each request only needs very few CPU cycles
+because the event loop (with all the other clients) is blocked during execution of a function. Node.js is best suited for real-time applications:
+
+* online games,
+* collaboration tools,
+* chat rooms,
+* API's
+* 
+or anything where what one user does with the application needs to be seen by other users immediately, without a page refresh.
+
+**-How do you convert an existing callback API to promises?**
+
+```
+function divisionAPI (number, divider, successCallback, errorCallback) {
+    if (divider == 0) {
+        return errorCallback( new Error("Division by zero") )
+    }
+    successCallback( number / divider )
+}
+```
+
+```
+function divisionAPI(number, divider) {
+    return new Promise(function(fulfilled, rejected) {
+        if (divider == 0) {
+            return rejected(new Error("Division by zero"))
+        }
+        fulfilled(number / divider)
+    })
+}
+
+// Promise can be used with together async\await in ES7 to make the program flow wait for a fullfiled result
+async function foo() {
+    var result = await divisionAPI(1, 2); // awaits for a fulfilled result!
+    console.log(result);
+}
+
+// Another usage with the same code by using .then() method
+divisionAPI(1, 2).then(function(result) {
+    console.log(result)
+})
+```
+
+**-How would you handle errors for async code in Node.js?**
+
+```
+doWork()
+ .then(doWork)
+ .then(doOtherWork)
+ .then((result) => doWork)
+ .catch((error) => {throw error;})
+ .then(verify);
+```
+
+```
+async function check(req, res) {
+    try {
+        const a = await someOtherFunction();
+        const b = await somethingElseFunction();
+        res.send("result")
+    } catch (error) {
+        res.send(error.stack);
+    }
+}
+```
 
