@@ -193,4 +193,38 @@ Single Threaded Event Loop Model Processing Steps:
 
 **-What is the advantage of using node.js?**
 
+* It provides an easy way to build scalable network programs
+* Generally fast
+* Great concurrency
+* Asynchronous everything
+* Almost never blocks
+
+**-What is the difference between Node.js vs Ajax?**
+
+The difference between Node.js and Ajax is that Ajax (short for Asynchronous Javascript and XML) is a client-side technology, often used for updating the contents of the page without refreshing it. While,Node.js is Server Side Javascript, used for developing server software. Node.js does not execute in the browser but by the server.
+
+**-What are the pros and cons of Node.js?**
+
+Pros:
+a) If your application does not have any CPU intensive computation, you can build it in the JavaScript top to bottom, even down to the database level if you use JSON storage object DB like MongoDB.
+b) Crawlers receive a full-rendered HTML response, which is far more SEO friendly rather than a single page application or a websockets app run on top of Node.js.
+
+Cons:
+a) Any intensive CPU computation will block node.js responsiveness, so a threaded platform is a better approach.
+b) Using a relational database with Node.js is considered less favorable
+
+**-What are the benefits of using Node.js?**
+
+* Asynchronous and Event Driven - All APIs of Node.js library are asynchronous that is non-blocking. It essentially means a Node.js based server never waits for a API to return data. Server moves to next API after calling it and a notification mechanism of Events of Node.js helps server to get response from the previous API call.
+
+* Very Fast - Being built on Google Chrome's V8 JavaScript Engine, Node.js library is very fast in code execution.
+
+* Single Threaded but highly Scalable - Node.js uses a single threaded model with event looping. Event mechanism helps server to respond in a non-blocking ways and makes server highly scalable as opposed to traditional servers which create limited threads to handle requests. Node.js uses a single threaded program and same program can services much larger number of requests than traditional server like Apache HTTP Server.
+
+* No Buffering - Node.js applications never buffer any data. These applications simply output the data in chunks.
+
+**-What is libuv?**
+
+libuv is a C library that is used to abstract non-blocking I/O operations to a consistent interface across all supported platforms. It provides mechanisms to handle file system, DNS, network, child processes, pipes, signal handling, polling and streaming. It also includes a thread pool for offloading work for some things that can't be done asynchronously at the operating system level.
+
 
