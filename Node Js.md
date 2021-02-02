@@ -1,11 +1,130 @@
 
 **Concepts**
 
-Callback 
-Promises
-Generators
-async and await
+**-What is a Callback?**
 
+Simply put: A callback is a function that is to be executed after another function has finished executing — hence the name ‘call back’.
+More complexly put: In JavaScript, functions are objects. Because of this, functions can take functions as arguments, and can be returned by other functions. Functions that do this are called higher-order functions. Any function that is passed as an argument is called a callback function.
+
+```
+const FunA = (callfriend) =>{ 
+    console.log("Welcome to A");
+    callfriend();
+}
+
+const FunB = () =>{
+    console.log("Welcome to B");
+}
+
+FunA(FunB);
+```
+
+**-What is Promises**
+
+A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it’s not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
+
+```
+firstRequest(function(response) {  
+    secondRequest(response, function(nextResponse) {    
+        thirdRequest(nextResponse, function(finalResponse) {     
+            console.log('Final response: ' + finalResponse);    
+        }, failureCallback);  
+    }, failureCallback);
+}, failureCallback);
+
+firstRequest()
+  .then(function(response) {
+    return secondRequest(response);
+}).then(function(nextResponse) {  
+    return thirdRequest(nextResponse);
+}).then(function(finalResponse) {  
+    console.log('Final response: ' + finalResponse);
+}).catch(failureCallback);
+```
+
+**-What is Async and Await?**
+
+An async function is a function declared with the async keyword. Async functions are instances of the AsyncFunction constructor, and the await keyword is permitted within them. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
+
+```
+Async Await
+function scaryClown() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('😱');
+      }, 2000);
+    });
+  }
+  
+  async function msg() {
+    const msg = await scaryClown();
+    console.log('Message:', msg);
+  }
+  
+msg(); // Message: 😱 <-- after 2 seconds
+```
+
+**-What is Clousers ?**
+A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
+
+```
+const outerFunc = (a) =>{
+    let b=10;
+    const innerFunc = () =>{
+        let sum = a + b;
+        console.log(sum);
+    }
+    return innerFunc;
+}
+
+let inner  = outerFunc(5);
+
+inner();
+```
+
+**-What is Callback Hell ?**
+
+If you are not expecting your application logic to get too complex, a few callbacks seem harmless. But once your project requirements start to swell, you will quickly find yourself piling layers of nested callbacks. Congrats! Welcome to Callback Hell.
+
+Constructing a callback hell
+
+Get ingredients (we’re gonna assume it’s a beef burger)
+Cook the beef
+Get burger buns
+Put the cooked beef between the buns
+Serve the burger
+
+Solutions to callback hell
+
+Write comments
+Split functions into smaller functions
+Using Promises
+Using Async/await
+
+```
+a(function(resultA){
+    b(resultA, function(resultB){
+        c(resultB, function(resultC){
+            d(resultC, function(resultD){
+                e(resultD, function(resultE){
+                    f(resultE, function(resultF){
+                        g(resultF, function(resultG){
+                            i(resultG, function(resultH){
+                                j(resultH, function(resultI){
+                                    console.log(resultI);
+                                    console.log("hiii");
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    })
+});
+
+a();
+```
 
 **INTERVIEW QUESTIONS**
 
