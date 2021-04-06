@@ -48,22 +48,42 @@ JEST Testing
 
 React Learning Curve
 
+
+
 html
+
 css
+
 js
+
 es6 js
+
 jsx
+
 components + functional programming
+
 virtual dom + component class
+
 modules
+
 usestate
+
 useeffect
+
 usereducer
+
 hooks
+
 forms
+
 context apis, custom hooks
+
 react router
+
 redux
+
 react native
+
 react 360
+
 react ar
