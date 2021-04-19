@@ -16,16 +16,24 @@
 React App:-
 
 npx create-react-app my-app
+
 cd my-app
+
 npm start
 
 Netlify deployment:-
 
 npm run build (to build your react app)
+
 npm install netlify-cli -g (install npm package of netlify)
+
 netlify status (to check status)
+
 netlify login (login to netlify with account you created on netlify)
+
 netlify sites:create (create site)
+
 netlify deploy (deploy application)
+
 netlify deploy --prod (deploy on production mode)
 
