@@ -1,18 +1,26 @@
 #include <iostream>
+#include <utility>
 #include <vector>
-#include <stack>
 #include <numeric>
 #include <queue>
 #include <cmath>
 #include <map>
+#include <string>
+#include <cstring>
+#include <algorithm>
+#include <fstream>
+#include <unordered_map>
+#include <unordered_set>
 #include <set>
 #include <list>
-#include <cstring>
-#include <unordered_set>
-#include <algorithm>
-#include <functional>
-#include <cctype>
-#include <string>
+#include <stack>
+#define ll long long
+#define dd double
+#include <stack>
+#include <chrono>
+#include <thread>
+#include <iomanip>
+
 using namespace std;
 
 struct Node{
@@ -24,6 +32,79 @@ struct Node{
         left=right=nullptr;
     }
 };
+
+Node* insert(Node* root, int x){
+    if(root == nullptr){
+        return new Node(x);
+    }
+    else if(root->key < x){
+        root->right = insert(root->right,x);
+    }
+    else if(root->key > x){
+        root->left = insert(root->left,x);
+    }
+    return root;
+}
+
+struct Trunk
+{
+    Trunk *prev;
+    string str;
+
+    Trunk(Trunk *prev, string str)
+    {
+        this->prev = prev;
+        this->str = str;
+    }
+};
+
+// Helper function to print branches of the binary tree
+void showTrunks(Trunk *p)
+{
+    if (p == nullptr) {
+        return;
+    }
+
+    showTrunks(p->prev);
+    cout << p->str;
+}
+
+// Recursive function to print a binary tree.
+// It uses the inorder traversal.
+void PrintingTree(Node* root, Trunk *prev, bool isLeft)
+{
+    if (root == nullptr) {
+        return;
+    }
+
+    string prev_str = "    ";
+    Trunk *trunk = new Trunk(prev, prev_str);
+
+    PrintingTree(root->right, trunk, true);
+
+    if (!prev) {
+        trunk->str = "———";
+    }
+    else if (isLeft)
+    {
+        trunk->str = ".———";
+        prev_str = "   |";
+    }
+    else {
+        trunk->str = "`———";
+        prev->str = prev_str;
+    }
+
+    showTrunks(trunk);
+    cout << root->key << endl;
+
+    if (prev) {
+        prev->str = prev_str;
+    }
+    trunk->str = "   |";
+
+    PrintingTree(root->left, trunk, false);
+}
 
 void preorder(Node *root){
     if(root!= nullptr){
@@ -364,7 +445,10 @@ int main(){
     root->right->right->left = new Node(13);
     root->right->right->right = new Node(15);
 
-
+    cout<<"\nInserting 213"<<endl;
+    insert(root,213);
+    cout<<"\nPrinting Tree"<<endl;
+    PrintingTree(root, nullptr, false);
     cout<<"\nInorder"<<endl;
     inorder(root);
     cout<<"\nPostorder"<<endl;
