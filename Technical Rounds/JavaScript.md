@@ -183,3 +183,11 @@ User interfaces are asynchronous by nature, and spend most of their time waiting
 Node is asynchronous by default, meaning that the server works in much the same way, waiting in a loop for a network request, and accepting more incoming requests while the first one is being handled.
 This is important in JavaScript, because it is a very natural fit for user interface code, and very beneficial to performance on the server.
 
+01) Explain hoisting in javascript?
+Hoisting is a default behaviour of javascript where all the variable and function declarations are moved on top i.e.the phenomenon of accessing functions and variables in javascript even before initializing them is called hoisting.
+
+02) Explain higher-order functions in javascript.
+Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions. Higher order functions are a result of functions being first-class citizens in javascript.
+
+03) Explain Closures in JavaScript.
+Closures is the combination of functions bundled together with reference to it's lexical environment. In simple words, Closures is an ability of a function to remember the variables and functions that are declared in its outer scope.
