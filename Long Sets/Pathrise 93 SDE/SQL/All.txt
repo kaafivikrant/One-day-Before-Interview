@@ -1,0 +1,54 @@
+1. What is the difference between a primary key and a foreign key in a database?
+
+- A primary key is uniquely identifies a record the relational database table.
+- A foreign key is the field of the table which is primary key of the another table.
+
+- A table can contain only one primary key.
+- A table can contain more than one foreign key.
+
+- Rows can't carry duplicate values for the primary key attribute.
+- Rows can carry duplicate values.
+
+- A primary key does not allow NULL values.
+- A foreign key can contain NULL values.
+
+- A primary key constraints cannot be dropped form the parent table which referred to the foreign key in the child table.
+- A foreign key value can be dropped from the child table even if it is referred to the primary key of the parent table.
+
+
+2. NCR question – What is the difference between union and union all in sql?
+
+- Union All keeps all the records from each of the original data sets.
+- Union removes all the duplicates from the concentrated data set.
+
+
+3. What SQL columns should you index and how would you change the indexing in different lookup scenarios?
+
+- 
+
+4. What is the difference between “group by” and “order by”? Normalization and de-normalization? What are the pros and cons of each strategy?
+
+- Group By used to group rows that have same values
+- Order By sort the result ascending or descending order
+
+- It is used before order by keyword
+- It is used after group by keyword
+
+- Group by controls the presentation of tuples(rows)
+- Order by clause controls the presentation of columns.
+
+--------------------------------------------------------------
+
+- Normalization is the process of creating set schemas to store non-redundant and consistent data.
+- DeNormalization is the process of combining all the data sets so that it can be queried speedily.
+
+- To reduce the data redundancy and inconsistency
+- To achieve the faster execution of the queries using redundancy.
+
+- Increased no. of tables
+- Decreased no. of tables
+
+- Optimized usage of disk space
+- Waste of usage of disk space
+
+
