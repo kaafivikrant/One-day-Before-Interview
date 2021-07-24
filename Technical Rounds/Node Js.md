@@ -1,5 +1,6 @@
 **Concepts**
 
+<<<<<<< HEAD
 **ES6 Features**
 arrows
 classes
@@ -22,6 +23,8 @@ math + number + string + array + object APIs
 binary and octal literals
 reflect api
 tail calls
+=======
+>>>>>>> 9f9aa59adde5a19f5fb6781be5e40dfa14342661
 
 **-What is a Callback?**
 
@@ -47,9 +50,9 @@ A promise is an object that may produce a single value some time in the future: 
 
 ```
 firstRequest(function(response) {  
-    secondRequest(response, function(nextResponse) {    
-        thirdRequest(nextResponse, function(finalResponse) {     
-            console.log('Final response: ' + finalResponse);    
+    secondRequest(response, function(nextResponse) {  
+        thirdRequest(nextResponse, function(finalResponse) {   
+            console.log('Final response: ' + finalResponse);  
         }, failureCallback);  
     }, failureCallback);
 }, failureCallback);
@@ -417,7 +420,11 @@ because the event loop (with all the other clients) is blocked during execution 
 * collaboration tools,
 * chat rooms,
 * API's
+<<<<<<< HEAD
 * 
+=======
+*
+>>>>>>> 9f9aa59adde5a19f5fb6781be5e40dfa14342661
 
 or anything where what one user does with the application needs to be seen by other users immediately, without a page refresh.
 
@@ -1026,4 +1033,3 @@ moment().subtract(10, 'days').calendar(); // 10/14/2020
 moment().subtract(6, 'days').calendar();  // Last Sunday at 3:18 PM
 moment().subtract(3, 'days').calendar();  // Last Wednesday at 3:18 PM
 ```
-
