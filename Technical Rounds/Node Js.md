@@ -1,6 +1,6 @@
 **Concepts**
 
-**ES6 Features**
+<!-- **ES6 Features**
 arrows
 classes
 enhanced object literals
@@ -23,7 +23,7 @@ binary and octal literals
 reflect api
 tail calls
 =======
->>>>>>> 9f9aa59adde5a19f5fb6781be5e40dfa14342661
+>>>>>>> 9f9aa59adde5a19f5fb6781be5e40dfa14342661 -->
 
 **-What is a Callback?**
 
