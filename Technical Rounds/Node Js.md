@@ -1,6 +1,5 @@
 **Concepts**
 
-<<<<<<< HEAD
 **ES6 Features**
 arrows
 classes
