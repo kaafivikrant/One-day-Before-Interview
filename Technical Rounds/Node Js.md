@@ -41,6 +41,14 @@ const FunB = () =>{
 }
 
 FunA(FunB);
+
+// 
+'Welcome to A'
+
+
+
+
+'Welcome to B'
 ```
 
 **-What is Promises**
