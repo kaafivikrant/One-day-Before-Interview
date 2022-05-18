@@ -1,0 +1,10 @@
+    int kthGrammar(int n, int k) 
+    {
+       if(n==1 && k==1)   //base condition
+           return 0;
+        int mid=pow(2,n-1)/2;
+        if(k<=mid)
+            return kthGrammar(n-1,k);
+        else
+            return !kthGrammar(n-1,k-mid); //k-mid is like mapping the first half of that row and finding its complement
+    }
