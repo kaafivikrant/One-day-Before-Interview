@@ -1040,3 +1040,23 @@ moment().subtract(10, 'days').calendar(); // 10/14/2020
 moment().subtract(6, 'days').calendar();  // Last Sunday at 3:18 PM
 moment().subtract(3, 'days').calendar();  // Last Wednesday at 3:18 PM
 ```
+
+
+const baz = () => console.log('baz')
+
+const foo = () => {
+  console.log('foo')
+  setTimeout(bar, 0)
+  new Promise((resolve, reject) =>
+    resolve('should be right after baz, before bar')
+  ).then(resolve => console.log(resolve))
+  baz()
+}
+
+foo()
+This prints
+
+foo
+baz
+should be right after baz, before bar
+bar
