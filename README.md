@@ -1,2 +1,2 @@
 # One-day-Before-Interview
-These are the functions that I use daily.
+These topics cover most of the frequently asked interview questions, ways to approach a problem in an interview, project specific questions, core subjects related questions and many more important topics.
